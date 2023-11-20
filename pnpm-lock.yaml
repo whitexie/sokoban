@@ -50,8 +50,11 @@ devDependencies:
     specifier: ^10.4.16
     version: registry.npmmirror.com/autoprefixer@10.4.16(postcss@8.4.31)
   eslint:
-    specifier: ^8.49.0
+    specifier: ^8.54.0
     version: registry.npmmirror.com/eslint@8.54.0
+  eslint-plugin-antfu:
+    specifier: ^1.0.10
+    version: registry.npmmirror.com/eslint-plugin-antfu@1.0.10(eslint@8.54.0)
   eslint-plugin-vue:
     specifier: ^9.17.0
     version: registry.npmmirror.com/eslint-plugin-vue@9.18.1(eslint@8.54.0)
