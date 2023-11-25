@@ -4,9 +4,9 @@ import { usePlayerStore } from "@/stores/player"
 type DirectionKey = 'ArrowUp' | 'ArrowLeft' | 'ArrowRight' | 'ArrowDown'
 
 export function useMove() {
-  const { movePlayerToLeft, movePlayerToDown, movePlayerToRight, movePlayerToTop } = usePlayerStore()
+  const { movePlayerToLeft, movePlayerToDown, movePlayerToRight, movePlayerToUp } = usePlayerStore()
   const evnetMapping = {
-    ArrowUp: movePlayerToTop,
+    ArrowUp: movePlayerToUp,
     ArrowLeft: movePlayerToLeft,
     ArrowRight: movePlayerToRight,
     ArrowDown: movePlayerToDown,

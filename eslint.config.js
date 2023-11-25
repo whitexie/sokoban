@@ -1,4 +1,3 @@
-import antfu from "@antfu/eslint-config";
-import antfuConfig from "eslint-plugin-antfu";
+const antfu = require('@antfu/eslint-config').default
 
-export default await antfu({ vue: true, typescript: true }, antfuConfig);
+module.exports = antfu({})

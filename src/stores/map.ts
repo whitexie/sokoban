@@ -1,5 +1,5 @@
-import { defineStore } from "pinia"
-import { ref } from "vue"
+import { defineStore } from 'pinia'
+import { ref } from 'vue'
 
 export enum MapTile {
   WALL = 1,
@@ -7,19 +7,14 @@ export enum MapTile {
 }
 
 interface Position {
-  x: number,
+  x: number
   y: number
 }
 
 export const useMapStore = defineStore('map', () => {
   const map = ref<number[][]>(
     [
-      [1, 1, 1, 1, 1],
-      [1, 2, 2, 2, 1],
-      [1, 2, 2, 2, 1],
-      [1, 2, 2, 2, 1],
-      [1, 1, 1, 1, 1],
-    ]
+    ],
   )
 
   function setupMap(newMap: MapTile[][]) {
@@ -28,13 +23,12 @@ export const useMapStore = defineStore('map', () => {
 
   function isWall(position: Position) {
     const { x, y } = position
-    return map.value[x][y] === MapTile.WALL
+    return map.value[y][x] === MapTile.WALL
   }
-
 
   return {
     map,
     setupMap,
-    isWall
+    isWall,
   }
 })
