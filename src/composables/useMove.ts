@@ -1,5 +1,5 @@
-import { onMounted, onUnmounted } from "vue"
-import { usePlayerStore } from "@/stores/player"
+import { onMounted, onUnmounted } from 'vue'
+import { usePlayerStore } from '@/stores/player'
 
 type DirectionKey = 'ArrowUp' | 'ArrowLeft' | 'ArrowRight' | 'ArrowDown'
 

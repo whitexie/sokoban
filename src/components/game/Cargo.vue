@@ -1,16 +1,21 @@
 <script lang="ts" setup>
-import cargoImg from "@/assets/img/cargo.png"
-import { usePosition } from "@/composables/usePosition"
+import { computed } from 'vue'
+import type { Cargo } from '@/stores/cargo'
+import cargoImg from '@/assets/img/cargo.png'
+import cargoOnTargetImg from '@/assets/img/cargo_on_target.png'
+import { usePosition } from '@/composables/usePosition'
 
 interface Props {
-  x: number,
-  y: number
+  cargo: Cargo
 }
 const props = defineProps<Props>()
 
-const { position } = usePosition(props)
-
+const { position } = usePosition(props.cargo)
+const img = computed(() => {
+  return props.cargo.onTarget ? cargoOnTargetImg : cargoImg
+})
 </script>
+
 <template>
-  <img :src="cargoImg" class="absolute" :style="position" />
+  <img :src="img" class="absolute" :style="position">
 </template>
