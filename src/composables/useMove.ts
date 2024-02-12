@@ -1,7 +1,10 @@
 import { onMounted, onUnmounted } from 'vue'
 import { usePlayerStore } from '@/stores/player'
+import { useGameStore } from '@/stores/game'
 
 type DirectionKey = 'ArrowUp' | 'ArrowLeft' | 'ArrowRight' | 'ArrowDown'
+
+const WHITE_KEY_CODE = ['ArrowUp', 'ArrowLeft', 'ArrowRight', 'ArrowDown']
 
 export function useMove() {
   const { movePlayerToLeft, movePlayerToDown, movePlayerToRight, movePlayerToUp } = usePlayerStore()
@@ -13,8 +16,12 @@ export function useMove() {
   }
 
   function handleKeyup(event: KeyboardEvent) {
-    const func = evnetMapping[event.code as DirectionKey]
-    func && func()
+    if (WHITE_KEY_CODE.includes(event.code)) {
+      const func = evnetMapping[event.code as DirectionKey]
+      func()
+      const { detectionGameCompleted } = useGameStore()
+      detectionGameCompleted()
+    }
   }
 
   onMounted(() => {

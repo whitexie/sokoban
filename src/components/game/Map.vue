@@ -16,10 +16,10 @@ const map = computed(() => {
     <div v-for="(row, i) in map" :key="i" class="flex">
       <div v-for="(col, j) in row" :key="j">
         <template v-if="map[i][j] === MapTile.WALL">
-          <img :src="wallImg">
+          <img class="select-none" :src="wallImg">
         </template>
         <template v-else-if="map[i][j] === MapTile.FLOOR">
-          <img :src="floorImg">
+          <img class="select-none" :src="floorImg">
         </template>
       </div>
     </div>
