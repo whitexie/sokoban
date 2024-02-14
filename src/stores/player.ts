@@ -2,11 +2,12 @@ import { defineStore } from 'pinia'
 import { reactive } from 'vue'
 import { useMapStore } from './map'
 import { useCargoStore } from './cargo'
+import type { Position } from '@/composables/usePosition'
 
 export const usePlayerStore = defineStore('player', () => {
   const player = reactive({
-    x: 1,
-    y: 1,
+    x: 0,
+    y: 0,
   })
   const { isWall } = useMapStore()
   const { moveCargo } = useCargoStore()
@@ -49,8 +50,14 @@ export const usePlayerStore = defineStore('player', () => {
     _move(0, 1)
   }
 
+  function setupPlayer(position: Position) {
+    player.x = position.x
+    player.y = position.y
+  }
+
   return {
     player,
+    setupPlayer,
     movePlayerToUp,
     movePlayerToDown,
     movePlayerToLeft,

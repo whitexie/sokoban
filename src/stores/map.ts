@@ -12,7 +12,7 @@ interface Position {
 }
 
 export const useMapStore = defineStore('map', () => {
-  const map = ref<number[][]>([])
+  const map = ref<MapTile[][]>([])
 
   function setupMap(newMap: MapTile[][]) {
     map.value = newMap

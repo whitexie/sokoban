@@ -3,37 +3,16 @@ import Map from './Map.vue'
 import Player from './Player.vue'
 import Cargo from './Cargo.vue'
 import Target from './Target.vue'
+import { levelGameData } from '@/game/gameData'
 import { useCargoStore } from '@/stores/cargo'
-import { useMapStore } from '@/stores/map'
 import { useTargetStore } from '@/stores/target'
 import { useGameStore } from '@/stores/game'
 
-const { setupMap } = useMapStore()
-const { targets, createTarget, addTarget } = useTargetStore()
-const { cargos, createCargo, addCargo } = useCargoStore()
-const { game } = useGameStore()
-addCargo(createCargo({ x: 2, y: 2 }))
-addCargo(createCargo({ x: 3, y: 3 }))
-addCargo(createCargo({ x: 4, y: 4 }))
+const { targets } = useTargetStore()
+const { cargos } = useCargoStore()
+const { game, setupGame } = useGameStore()
 
-addTarget(createTarget({ x: 5, y: 5 }))
-addTarget(createTarget({ x: 6, y: 6 }))
-addTarget(createTarget({ x: 7, y: 7 }))
-setupMap([
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
-  [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
-  [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
-  [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
-  [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
-  [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
-  [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
-  [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
-  [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
-  [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
-  [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-])
+setupGame(levelGameData)
 </script>
 
 <template>
@@ -53,3 +32,4 @@ setupMap([
     </div>
   </main>
 </template>
+@/game/gameData
