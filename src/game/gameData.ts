@@ -8,6 +8,8 @@ export interface LevelGameData {
   targets: Position[]
 }
 
+export type GameData = LevelGameData[]
+
 export const levelGameData: LevelGameData = {
   map: [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -36,3 +38,32 @@ export const levelGameData: LevelGameData = {
     { x: 7, y: 7 },
   ],
 }
+
+export const gameData = [levelGameData, {
+  map: [
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
+    [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
+    [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
+    [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
+    [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
+    [1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1],
+    [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
+    [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
+    [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
+    [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
+    [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  ],
+  player: { x: 1, y: 1 },
+  cargos: [
+    { x: 2, y: 2 },
+    { x: 3, y: 3 },
+    { x: 4, y: 4 },
+  ],
+  targets: [
+    { x: 5, y: 5 },
+    { x: 6, y: 6 },
+    { x: 7, y: 7 },
+  ],
+}]

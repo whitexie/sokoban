@@ -24,6 +24,16 @@ describe('normal', () => {
     expect(cargos).toHaveLength(1)
   })
 
+  it('should clean all cargos', () => {
+    const { cargos, addCargo, createCargo, cleanAllCargos } = useCargoStore()
+    addCargo(createCargo({ x: 1, y: 1 }))
+    addCargo(createCargo({ x: 2, y: 2 }))
+
+    expect(cargos).toHaveLength(2)
+    cleanAllCargos()
+    expect(cargos).toHaveLength(0)
+  })
+
   describe('on Target', () => {
     it('shift in', () => {
       const { addCargo, createCargo, moveCargo } = useCargoStore()

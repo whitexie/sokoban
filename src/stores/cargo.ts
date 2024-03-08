@@ -1,10 +1,12 @@
 import { defineStore } from 'pinia'
 import { reactive } from 'vue'
+import { nanoid } from 'nanoid'
 import { useMapStore } from './map'
 import { useTargetStore } from './target'
 import type { Position } from '@/composables/usePosition'
 
 export interface Cargo {
+  id: number | string
   x: number
   y: number
   onTarget: boolean
@@ -15,6 +17,7 @@ export const useCargoStore = defineStore('cargo', () => {
 
   function createCargo(position: Position): Cargo {
     return {
+      id: nanoid(),
       x: position.x,
       y: position.y,
       onTarget: false,
@@ -51,11 +54,16 @@ export const useCargoStore = defineStore('cargo', () => {
     cargo.onTarget = !!findTarget(cargo)
   }
 
+  function cleanAllCargos() {
+    cargos.splice(0, cargos.length)
+  }
+
   return {
     cargos,
     moveCargo,
     createCargo,
     addCargo,
     findCargo,
+    cleanAllCargos,
   }
 })
